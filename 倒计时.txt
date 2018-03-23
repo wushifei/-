@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>还剩：6时00分00秒</p>
+<p></p>
+<button id="btn" onclick="fu()">开始倒计时</button>
+</body>
+<script>
+    四天倒计时
+        function fun() {
+            var show=document.getElementsByTagName("p");
+            var End=new Date("2017/10/4");
+            var Start=new Date();
+            var aa=(End-Start)/1000;
+            var d=parseInt(aa/60/60/24);
+            var h=parseInt(aa/60/60%24);
+            var m=parseInt(aa/60%60);
+            var s=parseInt(aa%60);
+            show[1].innerHTML="还剩"+d+"天"+h+"小时"+m+"分钟"+s+"秒";
+        }
+        setInterval(fun,1000);
+
+    //六小时倒计时
+    //六十秒倒计时结束分减一，分满六十时减一
+    var show=document.getElementsByTagName("p");
+    function fu() {
+        var s = 60, m = 59, h = 5;
+        function fun() {
+            s--;
+            console.log(s);
+            if(s==-1){
+                m--;
+                s=59;
+                if(m==-1){
+                    h--;
+                    m=59;
+                }
+            }
+            show[0].innerText="还剩："+h+"时"+m+"分"+s+"秒";
+        }
+        setInterval(fun, 1000);
+    }
+
+</script>
+</html>
